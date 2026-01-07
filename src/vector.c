@@ -104,6 +104,12 @@ void erase(Vector *v, size_t index)
 }
 
 // метод clear очищающий элементы вектора но не удалая его самово
+void clear(Vector *v)
+{
+    if (!v) return;
+    v->length = 0;
+}
+
 
 
 // метод reserve увеличивающий capacity вектора

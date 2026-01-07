@@ -40,3 +40,6 @@ void insert(Vector *v,size_t index,const void *value);
 
 // метод reserve увеличивающий capacity вектора
 void reserve(Vector *v, size_t new_capacity);
+
+// метод clear очищающий элементы вектора но не удалая его самово
+void clear(Vector *v);

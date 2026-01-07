@@ -122,6 +122,17 @@ void test_reserve(void){
     free_vector(v);
     printf("✔ test_reserve passed\n");
 }
+//тест метода clear
+void test_clear(void){
+    Vector *v = vector_create(sizeof(int), 10);
+    for(int i = 0;i < 10;i++){
+        append(v,&i);
+    }
+    clear(v);
+    assert(v->length == 0);
+    free_vector(v);
+    printf("✔ test_clear passed\n");
+}
 
 
 int main(void) {
@@ -134,6 +145,7 @@ int main(void) {
     test_erase();
     test_insert();
     test_reserve();
+    test_clear();
 
     printf("\n✅ ALL TESTS PASSED\n");
     return 0;
