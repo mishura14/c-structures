@@ -106,7 +106,23 @@ void erase(Vector *v, size_t index)
 // метод clear очищающий элементы вектора но не удалая его самово
 
 
-// метод reverse увеличивающий capacity вектора
+// метод reserve увеличивающий capacity вектора
+void reserve(Vector *v, size_t new_capacity)
+{
+    if (new_capacity <= v->capacity) {
+        return;
+    }
+
+    void *new_data = realloc(v->data, new_capacity * v->element_size);
+    if (!new_data) {
+        perror("realloc");
+        return;
+    }
+
+    v->data = new_data;
+    v->capacity = new_capacity;
+}
+
 
 // insert вставка по индексу
 void insert(Vector *v,size_t index,const void *value)

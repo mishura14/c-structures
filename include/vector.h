@@ -37,3 +37,6 @@ void erase(Vector *v, size_t index);
 
 // insert вставка по индексу
 void insert(Vector *v,size_t index,const void *value);
+
+// метод reserve увеличивающий capacity вектора
+void reserve(Vector *v, size_t new_capacity);

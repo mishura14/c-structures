@@ -86,6 +86,7 @@ void test_set(void){
     int *value_set = get(v,0);
     assert(*value_set == 1000);
     printf("✔ test_set passed\n");
+    free_vector(v);
 }
 //тест метода erase
 void test_erase(void){
@@ -111,6 +112,15 @@ void test_insert(void){
     int *value_insert = get(v,10);
     assert(*value_insert == 1000);
     printf("✔ test_insert passed\n");
+    free_vector(v);
+}
+//тест метода reserve
+void test_reserve(void){
+    Vector *v = vector_create(sizeof(int),10);
+    reserve(v,100);
+    assert(v->capacity == 100);
+    free_vector(v);
+    printf("✔ test_reserve passed\n");
 }
 
 
@@ -123,6 +133,7 @@ int main(void) {
     test_set();
     test_erase();
     test_insert();
+    test_reserve();
 
     printf("\n✅ ALL TESTS PASSED\n");
     return 0;
