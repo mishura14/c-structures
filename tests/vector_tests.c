@@ -51,11 +51,24 @@ void test_resize(void) {
     free_vector(v);
     printf("✔ test_resize passed\n");
 }
+void test_popp(void){
+    Vector *v = vector_create(sizeof(int),10);
+    for(int i = 0;i < 10;i++){
+        append(v,&i);
+    }
+    int back_element;
+    pop(v,&back_element);
+    assert(back_element == 9);
+    assert(v->length == 9);
+    free_vector(v);
+    printf("✔ test_pop passed\n");
+}
 
 int main(void) {
     test_create_vector();
     test_append_ints();
     test_resize();
+    test_popp();
 
     printf("\n✅ ALL TESTS PASSED\n");
     return 0;

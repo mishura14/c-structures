@@ -22,3 +22,6 @@ void free_vector(Vector *v);
 
 //метод добавление элеметов в вектор
 void append(Vector *v, const void *value);
+
+//метод удаление элемента из конца вектора
+void pop(Vector *v,void *back_element);

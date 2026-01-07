@@ -33,7 +33,7 @@ void free_vector(Vector *v)
     free(v->data);
     free(v);
 }
-//метод добавление элеметов в вектор
+//метод добавление элеметов в конец вектора
 void append(Vector *v, const void *value)
 {
     if (v->length >= v->capacity) {
@@ -53,4 +53,16 @@ void append(Vector *v, const void *value)
     );
 
     v->length++;
+}
+//метод удаление элемента из конца вектора
+void pop(Vector *v,void *back_element)
+{
+    if(v->length == 0){
+        return;
+    }
+    v->length--;
+    if(back_element){
+        memcpy(back_element,(char *)v->data + v->length * v->element_size, v->element_size);
+    }
+
 }
