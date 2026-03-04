@@ -1,0 +1,45 @@
+#include <stddef.h>
+#include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+
+
+typedef struct{
+    void *data;
+    size_t capacity;
+    size_t element_size;
+    size_t length;
+
+}Vector;
+
+//метод создания вектора
+Vector *vector_create(size_t element_size, size_t capacity);
+
+//метод очистки вектора из памяти
+void free_vector(Vector *v);
+
+//метод добавление элеметов в вектор
+void append(Vector *v, const void *value);
+
+//метод удаление элемента из конца вектора
+void pop(Vector *v,void *back_element);
+
+//метод get возвращающий указатель на элемент по индексу
+void* get(Vector *v, size_t index);
+
+// метод set перезаписывающий элемент по индексу
+void set(Vector *v, size_t index,const void *value);
+
+// метод erase удалающий элемент по индексу
+void erase(Vector *v, size_t index);
+
+// insert вставка по индексу
+void insert(Vector *v,size_t index,const void *value);
+
+// метод reserve увеличивающий capacity вектора
+void reserve(Vector *v, size_t new_capacity);
+
+// метод clear очищающий элементы вектора но не удалая его самово
+void clear(Vector *v);

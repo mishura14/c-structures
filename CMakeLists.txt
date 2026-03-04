@@ -102,6 +102,27 @@ set_target_properties(c-structures PROPERTIES
     VERSION ${PROJECT_VERSION}
     SOVERSION 1
 )
+#--------------------------
+# --- исполняемый файл теста ---
+add_executable(bsearch
+    algorithms/bsearch/tests/tests_bsearch.c
+    algorithms/bsearch/src/bsearch.c
+)
+
+# --- include директории ---
+target_include_directories(bsearch PRIVATE
+    algorithms/bsearch/include
+
+)
+set_target_properties(bsearch PROPERTIES
+    BUILD_RPATH "${CMAKE_SOURCE_DIR}/algorithms/bsearch/build"
+)
+
+# --- линковка с библиотекой и math ---
+target_link_libraries(bsearch PRIVATE
+    ${CMAKE_SOURCE_DIR}/algorithms/bsearch/build/libvector.so.1.0
+    m
+)
 
 #========test===============
 
