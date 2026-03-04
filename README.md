@@ -11,23 +11,6 @@
 -String
 -bitVector
 ```
-#Алгоритмы
-```
--Bubble Sort
--Quick Sort
--Merge Sort
--Selection Sort
-```
-#Project Structures
-
-c-structures
-```
-|
-|--structures #структуры данных
-|--algorithms #алгоритмы
-|--math #математические функции
-|--tests #тесты
-```
 
 #Сборка и запуск
 ```

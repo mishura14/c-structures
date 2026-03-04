@@ -81,49 +81,6 @@ set_target_properties(string PROPERTIES
     SOVERSION 1
 )
 
-#----------c-structures--------------------
-add_library(c-structures SHARED
-    structures/vector/src/vector.c
-    structures/bitVector/src/bitVector.c
-    structures/ListDouble/src/ListDouble.c
-    structures/Single-linked/src/list_node.c
-    structures/my_string_libmy/src/my_string.c
-)
-#путь к заголовочному файлу
-target_include_directories(c-structures PUBLIC
-    structures/vector/include
-    structures/bitVector/include
-    structures/ListDouble/include
-    structures/Single-linked/include
-    structures/my_string_libmy/include
-)
-#версия библиотеки
-set_target_properties(c-structures PROPERTIES
-    VERSION ${PROJECT_VERSION}
-    SOVERSION 1
-)
-#--------------------------
-# --- исполняемый файл теста ---
-add_executable(bsearch
-    algorithms/bsearch/tests/tests_bsearch.c
-    algorithms/bsearch/src/bsearch.c
-)
-
-# --- include директории ---
-target_include_directories(bsearch PRIVATE
-    algorithms/bsearch/include
-
-)
-set_target_properties(bsearch PROPERTIES
-    BUILD_RPATH "${CMAKE_SOURCE_DIR}/algorithms/bsearch/build"
-)
-
-# --- линковка с библиотекой и math ---
-target_link_libraries(bsearch PRIVATE
-    ${CMAKE_SOURCE_DIR}/algorithms/bsearch/build/libvector.so.1.0
-    m
-)
-
 #========test===============
 
 #------------тест vector-------------------
