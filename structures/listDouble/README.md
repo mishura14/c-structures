@@ -1,0 +1,64 @@
+# ListDouble
+Минимальная реализация **двусвязного списка** на языке C с функциями добавления, удаления и очистки списка. Проект включает библиотеку и тесты.
+
+
+## ⚙️ Функции библиотеки
+
+### Структура узла
+
+```c
+typedef struct ListDouble{
+    int data;
+    struct ListDouble* next;
+    struct ListDouble* last;
+} ListDouble;
+```
+Функции
+Функция	Описание
+```c
+//функция  полного удалениея списка
+void freeListDouble(ListDouble* head);
+
+//функция добавлния в конец списка
+ListDouble* addListDouble(ListDouble* head, int data);
+
+//функция удаление элемента по значению
+ListDouble* deleteListDouble(ListDouble* head, int value);
+```
+
+🛠 Сборка проекта
+Используется CMake:
+```bash
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
+🚀 Запуск тестов
+```bash
+./tests_list_node
+```
+Вывод должен быть примерно такой:
+```bash
+Копировать код
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+тесты на добавление прошли
+8
+7
+6
+4
+3
+2
+1
+тесты на удаление прошли
+все тесты прошли
+```

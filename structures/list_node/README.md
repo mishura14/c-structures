@@ -1,0 +1,60 @@
+# Singly-linked-list
+# Singly Linked List in C
+
+Минимальная реализация **односвязного списка** на языке C с функциями добавления, удаления и очистки списка. Проект включает библиотеку и тесты.
+
+
+## ⚙️ Функции библиотеки
+
+### Структура узла
+
+```c
+typedef struct ListNode {
+    int data;
+    struct ListNode *next;
+} ListNode;
+```
+Функции
+Функция	Описание
+```c
+ListNode* addListNode(ListNode* ln, int value)	//Добавляет новый элемент в начало списка
+ListNode* deleteListNode(ListNode* ln, int value)//	Удаляет первый элемент с заданным значением
+void freeListNode(ListNode* ln)	Полностью очищает //список, освобождая память
+```
+
+🛠 Сборка проекта
+Используется CMake:
+```bash
+mkdir build
+cd build
+cmake ..
+cmake --build .
+```
+🚀 Запуск тестов
+```bash
+./tests_list_node
+```
+Вывод должен быть примерно такой:
+```bash
+Копировать код
+9
+8
+7
+6
+5
+4
+3
+2
+1
+0
+тесты на добавление прошли
+8
+7
+6
+4
+3
+2
+1
+тесты на удаление прошли
+все тесты прошли
+```
